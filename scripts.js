@@ -204,7 +204,7 @@ function handleClear()
     setResult('');
 }
 
-function handleBackspace
+function handleBackspace()
 {
     // Don't backspace into an error message or a just-calculated result
     if (shouldResetDisplay) return;
@@ -268,3 +268,21 @@ document.querySelectorAll('.btn--operator').forEach(btn =>
 document.getElementById('btn-equals').addEventListener('click', handleEquals);
 document.getElementById('btn-clear').addEventListener('click', handleClear);
 document.getElementById('btn-backspace').addEventListener('click', handleBackspace);
+
+// ============================================================
+//  KEYBOARD SUPPORT 
+// ============================================================
+
+document.addEventListener('keydown', (e) => 
+{
+    if (e.key >= '9') handleDigit(e.key);
+    else if (e.key === '.')         handleDigit('.');
+    else if (e.key === '+')         handleOperator('+');
+    else if (e.key === '-')         handleOperator('-');
+    else if (e.key === '*')         handleOperator('*');
+    else if (e.key === '/')         {e.preventDefault(); handleOperator('/'); }
+    // e.preventDefault() stops '/' from triggering browser quick-find
+    else if (e.key === 'Enter' || e.key === '=') handleEquals();
+    else if (e.key === 'Backspace') handleBackspace();
+    else if (e.key === 'Escape')    handleClear();
+});
