@@ -1,0 +1,28 @@
+/* =============================================
+   CSS CUSTOM PROPERTIES (variables)
+   ============================================= */
+:root {
+    --bg-page:        #1a1a1a;
+    --bg-calc:        #2a2826;
+    --bg-display:     #111210;
+    --bg-btn-digit:   #3c3a37;
+    --bg-btn-op:      #4a3f2f;
+    --bg-btn-util:    #383533;
+    --bg-btn-equals:  #c87941;
+
+    --text-display:   #f0d090;
+    --text-digit:     #e8e0d4;
+    --text-operator:  #f5bc72;
+    --text-utility:   #a09890;
+    --text-equals:    #1a1008;
+
+    --accent:         #c87941;
+    --border-subtle:  rgba(255, 255, 255, 0.06);
+
+    --radius-calc:   16px;
+    --radius-btn:    8px;
+    --gap:           10px;
+
+    --font-display: 'Share Tech Mono', monospace;
+    --font-ui:      'Barlow', sans-serif;
+}
