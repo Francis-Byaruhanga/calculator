@@ -286,3 +286,6 @@ document.addEventListener('keydown', (e) =>
     else if (e.key === 'Backspace') handleBackspace();
     else if (e.key === 'Escape')    handleClear();
 });
+
+// Initialize
+updateDisplay();
