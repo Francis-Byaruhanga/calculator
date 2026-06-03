@@ -73,3 +73,24 @@ const expressionE1  = document.getElementById('expression');
 const resultE1      = document.getElementById('result');
 const allButtons    = document.querySelectorAll('.btn');
 
+// ============================================================
+//  DISPLAY HELPERS
+// ============================================================
+
+function updateDisplay() 
+{
+    expressionE1.textContent = displayValue;
+    // Shrink font if the number gets very long
+    if (displayValue.length > 9) 
+    {
+        expressionE1.style.fontSize = 'clamp(1rem, 5vw, 1.3rem)';
+    } 
+    else
+    {
+        expressionE1.style.fontSize = ''; // Revert to CSS default
+    }
+}
+
+function setResult(value) {
+    resultE1.textContent = value !== null ? String(value) : '';
+}
