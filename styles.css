@@ -193,3 +193,12 @@ body {
 .btn--wide {
     grid-column: span 2;
 }
+
+/* =============================================
+   RESPONSIVE TWEAKS
+   ============================================= */
+@media (max-width: 360px) {
+    .calculator { padding: 14px; }
+    .buttons { gap: 7px; }
+    .btn { height: 54px; font-size: 1.05rem; }
+}
