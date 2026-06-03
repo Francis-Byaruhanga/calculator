@@ -203,3 +203,18 @@ function handleClear()
     updateDisplay();
     setResult('');
 }
+
+function handleBackspace
+{
+    // Don't backspace into an error message or a just-calculated result
+    if (shouldResetDisplay) return;
+    if (displayValue.length === 1 || (displayValue.length === 3 && displayValue.startsWith('-')))
+    {
+        displayValue = '0';
+    }
+    else
+    {
+        displayValue = displayValue.slice(0, -1); // Remove last character
+    }
+    updateDisplay();
+}
