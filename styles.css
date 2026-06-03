@@ -100,3 +100,13 @@ body {
     text-align: right;
     min-height: 1.2em;
 }
+
+/* =============================================
+   BUTTON GRID
+   ============================================= */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap);
+}
+
