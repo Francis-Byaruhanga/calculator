@@ -246,3 +246,25 @@ function clearOperatorHighlight()
         btn.classList.remove('is active');
     });
 }
+
+// ============================================================
+//  EVENT LISTENERS
+// ============================================================
+
+// Single delegated listener on the button grid is more efficient than one
+// per button, but attaching to each button individually is also fine and
+// more readable — we'll do that here for clarity.
+
+document.querySelectorAll('.btn--digit').forEach(btn => 
+{
+    btn.addEventListener('click', () => handleDigit(btn.dataset.digit));
+});
+
+document.querySelectorAll('.btn--operator').forEach(btn => 
+{
+    btn.addEventListener('click', () => handleOperator(btn.dataset.operator));
+});
+
+document.getElementById('btn-equals').addEventListener('click', handleEquals);
+document.getElementById('btn-clear').addEventListener('click', handleClear);
+document.getElementById('btn-backspace').addEventListener('click', handleBackspace);
