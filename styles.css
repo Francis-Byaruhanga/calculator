@@ -110,3 +110,34 @@ body {
     gap: var(--gap);
 }
 
+/* =============================================
+   BUTTONS — BASE STYLE
+   ============================================= */
+.btn {
+    all: unset;  /* wipes browser default button styles */
+    cursor: pointer;
+    border-radius: var(--radius-btn);
+    height: 62px;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-ui);
+    font-size: 1.2rem;
+    font-weight: 600;
+    user-select: none; /* Stops text being highlighted on double click */
+    position: relative;
+    transition: relative;
+    transition: filter 0.1s ease, transform 0.08s ease;
+    border: 1px solid transparent;
+}
+
+/* Press animation */
+.btn:active {
+    transform: scale(0.93);
+    filter: brightness(0.85);
+}
+
+/*  Keyboard focus ring (accessibility) */
+.btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
