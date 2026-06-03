@@ -179,22 +179,22 @@ function handleEquals() {
         clearState();
         return;
     }
+
+    const rounded = roundResult(result);
+     
+    // Show the full expression in the smaller line above the result
+    const operatorSymbol = { '+': '+', '-': '-', '*': '×', '/':'÷'}[currentOperator];
+    setResult(`${firstOperand} ${operatorSymbol} ${currentValue} =`);
+
+    displayValue        = String(rounded);
+    firstOperand        = rounded; // allow chaining: result becomes new firstOperand
+    currentOperator     = null;
+    secondOperand       = null;
+    shouldResetDisplay = true;     // next digit starts a new calculation
+
+    updateDisplay();
+    clearOperatorHighlight();
 }
-
-const rounded = roundResult(result);
- 
-// Show the full expression in the smaller line above the result
-const operatorSymbol = { '+': '+', '-': '-', '*': '×', '/':'÷'}[currentOperator];
-setResult(`${firstOperand} ${operatorSymbol} $(currentValue) =`);
-
-displayValue        = String(rounded);
-firstOperand        = rounded; // allow chaining: result becomes new firstOperand
-currentOperator     = null;
-secondOperand       = null;
-shouldResetDisplay = true;     // next digit starts a new calculation
-
-updateDisplay();
-clearOperatorHighlight();
 
 function handleClear()
 {
@@ -243,7 +243,7 @@ function clearOperatorHighlight()
 {
     document.querySelectorAll('.btn--operator.is-active').forEach(btn => 
     {
-        btn.classList.remove('is active');
+        btn.classList.remove('is-active');
     });
 }
 
