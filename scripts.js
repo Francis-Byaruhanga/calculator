@@ -238,3 +238,11 @@ function highlightOperator(operator) {
     const activeBtn = document.querySelector(`.btn--operator[data-operator="${operator}"]`);
     if (activeBtn) activeBtn.classList.add('is-active');
 }
+
+function clearOperatorHighlight()
+{
+    document.querySelectorAll('.btn--operator.is-active').forEach(btn => 
+    {
+        btn.classList.remove('is active');
+    });
+}
