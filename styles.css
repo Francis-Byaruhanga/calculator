@@ -26,3 +26,24 @@
     --font-display: 'Share Tech Mono', monospace;
     --font-ui:      'Barlow', sans-serif;
 }
+
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100dvh; /* dvh = dynamic viewport height, better on mobile */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-page);
+    background-image:
+        radial-gradient(ellipse at 30% 20%, rgba(200, 121, 65, 0.07)0%, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, rgba(90, 70, 40, 0.10) 0%, transparent 60%);
+    font-family: var(--font-ui);
+}
