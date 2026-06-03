@@ -231,3 +231,10 @@ function clearState()
     shouldResetDisplay  = false;
     clearOperatorHighlight();
 }
+
+function highlightOperator(operator) {
+    clearOperatorHighlight();
+    // Find the button whose data-operator matches and add the highlight class
+    const activeBtn = document.querySelector(`.btn--operator[data-operator="${operator}"]`);
+    if (activeBtn) activeBtn.classList.add('is-active');
+}
