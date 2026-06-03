@@ -120,6 +120,7 @@ body {
     height: 62px;
     display: flex;
     align-items: center;
+    justify-content: center;
     font-family: var(--font-ui);
     font-size: 1.2rem;
     font-weight: 600;
