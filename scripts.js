@@ -94,3 +94,35 @@ function updateDisplay()
 function setResult(value) {
     resultE1.textContent = value !== null ? String(value) : '';
 }
+
+// ============================================================
+//  INPUT HANDLERS
+// ============================================================
+
+function handleDigit(digit)
+{
+    // If the previous actions was '=' or an operator result, start afresh.
+    if (shouldResetDisplay)
+    {
+        displayValue = digit === '.' ? '0.' : digit;
+        shouldResetDisplay = false;
+    } 
+    else 
+    {
+        // Prevent multiple decimal points
+        if (digit === '.' && displayValue.includes('.')) return;
+
+        // Replace the initial '0' when a digit is typed, but keep '0' for '0.'
+        if (displayValue === '0' && digit !== '.')
+        {
+            displayValue = digit;
+        }
+        else
+        {
+            // Limit input length to avoid display overflow
+            if (displayValue.length >= 12) return;
+            displayValue += digit;
+        }
+    }
+    updateDisplay();
+}
