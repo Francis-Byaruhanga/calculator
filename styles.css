@@ -62,3 +62,41 @@ body {
         0 0 0 1px var(--border-subtle),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
+
+/* =============================================
+   DISPLAY
+   ============================================= */
+.display {
+    background: var(--bg-display);
+    border-radius: 8px;
+    padding: 16px 20px 12px;
+    margin-bottom: 18px;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.display__expression {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 8vw, 2rem); /* Scales with viewport width */
+    color: var(--text-display);
+    letter-spacing: 0.03em;
+    word-break: break-all;
+    text-align: right;
+    line-height: 1.2;
+    transition: font-size 0.15s ease;
+}
+
+.display__result {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: rgba(240, 208, 144, 0.45);
+    letter-spacing: 0.05em;
+    text-align: right;
+    min-height: 1.2em;
+}
