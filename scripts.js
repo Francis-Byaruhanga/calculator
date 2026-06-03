@@ -218,3 +218,16 @@ function handleBackspace
     }
     updateDisplay();
 }
+
+// ============================================================
+//  STATE HELPERS
+// ============================================================
+
+function clearState()
+{
+    firstOperand        = null;
+    secondOperand       = null;
+    currentOperator     = null;
+    shouldResetDisplay  = false;
+    clearOperatorHighlight();
+}
