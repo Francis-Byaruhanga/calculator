@@ -55,3 +55,21 @@ function roundResult(value)
     return parseFloat(parseFloat(value).toPrecision(10));
 }
 
+// ============================================================
+//  PART 2 — CALCULATOR STATE & DOM
+// ============================================================
+
+// ---- STATE ----
+// These variables hold everything together the calculator "knows" at any moment.
+let firstOperand = null; // the first number entered.
+let secondOperand = null; // the second number entered.
+let currentOperator = null; // the operator selected 
+let displayValue = '0'; // What's currently being displayed
+let shouldResetDisplay = false; // Flag: next digit press starts afresh
+
+// ---- DOM REFERENCES ----
+// Grab elements once, store them in variables — faster than querying every time.
+const expressionE1  = document.getElementById('expression');
+const resultE1      = document.getElementById('result');
+const allButtons    = document.querySelectorAll('.btn');
+
