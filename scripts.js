@@ -126,3 +126,72 @@ function handleDigit(digit)
     }
     updateDisplay();
 }
+
+function handleOperator(operator) 
+{
+    const currentValue = parseFloat(displayValue); // convert string -> number
+
+    // If we already have a pending operation, evaluate it first
+    // (handles the "12 + 7 -" chaining described in the spec)
+    if (currentOperator !== null && !shouldResetDisplay)
+    {
+        const result = operate(currentOperator, firstOperand, currentValue);
+
+        if (typeof result === 'string')
+        {
+            // It's an error (division by zero)
+            displayValue = result;
+            updateDisplay();
+            clearState();
+            return;
+        }
+
+        const rounded = roundResult(result);
+        displayValue = String(rounded);
+        firstOperand = rounded;
+        updateDisplay();
+        setResult('');
+    }
+    else
+    {
+        // First operator press - just store the current number 
+        firstOperand = currentValue;
+    }
+
+    currentOperator = operator;
+    shouldResetDisplay = true; // next digit will start a fresh second number
+
+    // Highlight the active operator button
+    highlightOperator(operator);
+}
+
+function handleEquals() {
+    // Guard: we need both operands and an operator
+    if (currentOperator === null || shouldResetDisplay) return;
+
+    const currentValue = parseFloat(displayValue);
+    const result = operate(currentOperator, firstOperand, currentValue);
+
+    if (typeof result === 'string')
+    {
+        displayValue = result;
+        updateDisplay();
+        clearState();
+        return;
+    }
+}
+
+const rounded = roundResult(result);
+ 
+// Show the full expression in the smaller line above the result
+const operatorSymbol = { '+': '+', '-': '-', '*': '×', '/':'÷'}[currentOperator];
+setResult(`${firstOperand} ${operatorSymbol} $(currentValue) =`);
+
+displayValue        = String(rounded);
+firstOperand        = rounded; // allow chaining: result becomes new firstOperand
+currentOperator     = null;
+secondOperand       = null;
+shouldResetDisplay = true;     // next digit starts a new calculation
+
+updateDisplay();
+clearOperatorHighlight();
