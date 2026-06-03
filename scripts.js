@@ -195,3 +195,11 @@ shouldResetDisplay = true;     // next digit starts a new calculation
 
 updateDisplay();
 clearOperatorHighlight();
+
+function handleClear()
+{
+    clearState();
+    displayValue = '0';
+    updateDisplay();
+    setResult('');
+}
