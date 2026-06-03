@@ -275,7 +275,7 @@ document.getElementById('btn-backspace').addEventListener('click', handleBackspa
 
 document.addEventListener('keydown', (e) => 
 {
-    if (e.key >= '9') handleDigit(e.key);
+    if (e.key >= '0' && e.key <= '9') handleDigit(e.key);
     else if (e.key === '.')         handleDigit('.');
     else if (e.key === '+')         handleOperator('+');
     else if (e.key === '-')         handleOperator('-');
